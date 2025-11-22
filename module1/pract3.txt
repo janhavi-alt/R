@@ -1,0 +1,6 @@
+Exploring data: Displaying datasets using PROC PRINT (SAS), Data Viewer
+(SPSS), and View() or print() (R).
+
+data <- data.frame(ID=c(1,2,3,4,5), Name=c("John","Mary","Alex","Sarah","David"), Age=c(23,21,22,24,23), Score=c(88,92,85,90,87));
+print(data)
+View(data)

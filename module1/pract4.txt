@@ -1,0 +1,17 @@
+Applying conditional filters using IF, WHERE, and IF-THEN in SAS; Select Cases
+in SPSS; and subset() or filter() in R.
+
+# Load dplyr
+install.packages("dplyr"); library(dplyr)
+
+# Create dataset
+data <- data.frame(ID=1:5, Name=c("John","Mary","Alex","Sarah","David"), Age=c(23,21,22,24,23), Score=c(88,92,85,90,87))
+
+# Base R subset examples
+print(subset(data, Age > 22))                     # Age > 22
+print(subset(data, Score >= 90, select=c(Name,Score)))  # Score >= 90, selected columns
+
+# dplyr filter examples
+print(filter(data, Age > 22))                     # Age > 22
+print(data %>% filter(Score >= 90) %>% select(Name, Score))  # Score >= 90, selected columns
+

@@ -1,0 +1,28 @@
+1 Introduction to the R environments – installation, interface
+overview, and loading data files.
+2 Creating datasets from raw data (text files, CSV files, Excel sheets) and importing
+data into R.
+--------------------------------------------------------------
+install.packages(c("writexl","readxl","readr"))
+
+library(writexl)
+library(readxl)
+library(readr)
+
+# Create dataset
+data <- data.frame(
+  ID = c(1,2,3,4,5),
+  Name = c("John","Mary","Alex","Sarah","David"),
+  Age = c(23,21,22,24,23),
+  Score = c(88,92,85,90,87)
+)
+
+# Save files
+write_xlsx(data, "sample_dataset.xlsx")   # Excel
+write_csv(data, "sample_dataset.csv")     # CSV
+write.table(data, "sample_dataset.txt", sep="\t", row.names=FALSE, quote=FALSE)  # TXT
+
+# Import files back
+data_excel <- read_excel("sample_dataset.xlsx")
+data_csv   <- read_csv("sample_dataset.csv")
+data_txt   <- read.table("sample_dataset.txt", header=TRUE, sep="\t")
