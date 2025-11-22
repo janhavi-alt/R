@@ -1,0 +1,40 @@
+Applying basic data cleaning functions: handling missing values using MISSING
+(SAS), Define Missing Values (SPSS), and na.omit()/replace_na() in R
+
+# Install required packages (run only once)
+install.packages("dplyr")
+install.packages("tidyr")
+
+# Load packages
+library(dplyr)
+library(tidyr)
+
+# Creating a dataset with missing values (NA)
+students <- data.frame(
+  Name = c("John", "Alice", "Rahul", "Meera"),
+  Age = c(22, NA, 21, 23),
+  Score = c(88, 92, NA, 90)
+)
+
+# --- Removing rows with missing values ---
+cleaned_data <- na.omit(students)
+
+# --- Replacing missing values with mean values ---
+mean_age <- mean(students$Age, na.rm = TRUE)
+mean_score <- mean(students$Score, na.rm = TRUE)
+
+students_filled <- students %>%
+  mutate(
+    Age = replace_na(Age, mean_age),
+    Score = replace_na(Score, mean_score)
+  )
+
+# Display output
+print("Original Data:")
+print(students)
+
+print("After Removing Missing Values:")
+print(cleaned_data)
+
+print("After Replacing Missing Values:")
+print(students_filled)

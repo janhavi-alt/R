@@ -1,0 +1,20 @@
+Sorting data using PROC SORT in SAS, Sort Cases in SPSS, and arrange() in R.
+
+# Install required package (run only once)
+install.packages("dplyr")
+
+# Load the package
+library(dplyr)
+
+# Creating a sample dataset
+students <- data.frame(
+  Name = c("John", "Alice", "Rahul", "Meera"),
+  Age = c(22, 20, 21, 23),
+  Score = c(88, 92, 85, 90)
+)
+
+# Sorting data by Age in ascending order
+sorted_students <- students %>% arrange(Age)
+
+# Display sorted data
+print(sorted_students)

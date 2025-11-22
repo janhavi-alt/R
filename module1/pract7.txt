@@ -1,0 +1,29 @@
+Selecting and dropping variables using KEEP, DROP in SAS, Variable View in
+SPSS, and select() in R.
+
+# Install required package (run once)
+install.packages("dplyr")
+
+# Load the package
+library(dplyr)
+
+# Creating a sample dataset
+students <- data.frame(
+  Name = c("John", "Alice", "Rahul", "Meera"),
+  Age = c(22, 20, 21, 23),
+  Score = c(88, 92, 85, 90),
+  Grade = c("A", "A+", "B", "A")
+)
+print(students)
+# --- Selecting specific variables (keep columns) ---
+selected_data <- students %>% select(Name, Score)
+
+# --- Dropping variables (remove columns) ---
+dropped_data <- students %>% select(-Grade, -Age)
+
+# Display results
+print("Selected Columns:")
+print(selected_data)
+
+print("After Dropping Columns:")
+print(dropped_data)
