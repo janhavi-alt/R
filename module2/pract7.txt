@@ -1,0 +1,13 @@
+Performing one-way ANOVA using PROC ANOVA (SAS), One-Way ANOVA
+(SPSS), and aov() (R).
+
+install.packages("stats")
+library(stats)
+group <- factor(rep(c("A", "B", "C"), each = 5))
+scores <- c(85, 88, 90, 87, 86,
+            78, 80, 82, 81, 79,
+            92, 94, 95, 93, 96)
+
+anova_result <- aov(scores ~ group)
+print(summary(anova_result))
+

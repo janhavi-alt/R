@@ -1,0 +1,26 @@
+Generating frequency tables using PROC FREQ (SAS), Frequencies (SPSS),
+and table() or count() (R).
+
+if(!require(dplyr)) install.packages("dplyr")
+library(dplyr)
+
+data <- data.frame(
+  Gender = c("Male", "Female", "Female", "Male", "Male", "Female", "Female", "Male"),
+  Grade = c("A", "B", "A", "C", "B", "A", "C", "B")
+)
+
+cat("\n--- Frequency Using table() ---\n")
+print(table(data$Gender))
+print(table(data$Grade))
+
+cat("\n--- Cross Tabulation (Two-way Table) ---\n")
+print(table(data$Gender, data$Grade))
+
+cat("\n--- Frequency Using count() (dplyr) ---\n")
+print(count(data, Gender))
+print(count(data, Grade))
+
+cat("\n--- Frequency Table with Percentages ---\n")
+freq_gender <- as.data.frame(table(data$Gender))
+freq_gender$Percent <- round((freq_gender$Freq / sum(freq_gender$Freq)) * 100, 2)
+print(freq_gender)

@@ -1,0 +1,8 @@
+Performing one-sample t-tests using PROC TTEST (SAS), T-Test (SPSS), and
+t.test() (R).
+
+install.packages("stats")
+library(stats)
+data <- c(85, 88, 90, 92, 87, 89, 91, 93, 95, 96)
+t_test_result <- t.test(data, mu = 90)
+print(t_test_result)

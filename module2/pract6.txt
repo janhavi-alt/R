@@ -1,0 +1,9 @@
+Performing paired t-tests using PROC TTEST (SAS), Paired Samples T-Test
+(SPSS), and t.test(paired=TRUE) (R).
+
+install.packages("stats")
+library(stats)
+before <- c(85, 88, 90, 92, 87, 89, 91, 93)
+after <- c(88, 90, 92, 94, 89, 91, 94, 95)
+t_test_result <- t.test(before, after, paired = TRUE)
+print(t_test_result)

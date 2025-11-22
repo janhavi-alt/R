@@ -1,0 +1,9 @@
+Performing independent two-sample t-tests using PROC TTEST (SAS), T-Test
+(SPSS), and t.test() with grouping (R).
+
+install.packages("stats")
+library(stats)
+group1 <- c(85, 88, 90, 92, 87, 89)
+group2 <- c(78, 82, 80, 79, 81, 83)
+t_test_result <- t.test(group1, group2, var.equal = TRUE)
+print(t_test_result)

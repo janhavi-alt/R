@@ -1,0 +1,25 @@
+Creating cross-tabulations and two-way tables using PROC FREQ (SAS),
+Crosstabs (SPSS), and table() (R).
+
+if(!require(gmodels)) install.packages("gmodels")
+library(gmodels)
+
+data <- data.frame(
+  Gender = c("Male", "Female", "Female", "Male", "Male", "Female", "Female", "Male"),
+  Grade = c("A", "B", "A", "C", "B", "A", "C", "B")
+)
+
+cat("\n--- Two-way Table using table() ---\n")
+print(table(data$Gender, data$Grade))
+
+cat("\n--- Two-way Table with Margins ---\n")
+print(addmargins(table(data$Gender, data$Grade)))
+
+cat("\n--- Proportional Table (Row Percentages) ---\n")
+print(prop.table(table(data$Gender, data$Grade), 1))
+
+cat("\n--- Proportional Table (Column Percentages) ---\n")
+print(prop.table(table(data$Gender, data$Grade), 2))
+
+cat("\n--- CrossTab Output similar to SPSS and SAS (using CrossTable) ---\n")
+CrossTable(data$Gender, data$Grade, prop.chisq = FALSE)

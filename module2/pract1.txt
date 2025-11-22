@@ -1,0 +1,33 @@
+Generating descriptive statistics using PROC MEANS (SAS), Descriptive
+Statistics (SPSS), and summary() or describe() (R)
+
+if(!require(psych)) install.packages("psych")
+library(psych)
+
+data <- data.frame(
+  Age = c(18, 20, 19, 22, 21, 20, 19, 23, 25, 24),
+  Score = c(85, 90, 88, 92, 87, 89, 91, 93, 95, 96),
+  Height = c(160, 165, 162, 170, 168, 166, 164, 175, 178, 180)
+)
+
+cat("\n--- Summary Statistics (R summary()) ---\n")
+print(summary(data))
+
+cat("\n--- Detailed Descriptive Statistics (psych::describe()) ---\n")
+print(describe(data))
+
+cat("\n--- Custom Descriptive Statistics (Like PROC MEANS SAS) ---\n")
+means <- colMeans(data)
+sd_values <- apply(data, 2, sd)
+min_values <- apply(data, 2, min)
+max_values <- apply(data, 2, max)
+
+result <- data.frame(
+  Variable = names(data),
+  Mean = means,
+  SD = sd_values,
+  Minimum = min_values,
+  Maximum = max_values
+)
+
+print(result)
